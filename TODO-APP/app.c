@@ -72,6 +72,7 @@ void postTodo(char *username){
 
     int todoPosted = post_todo(username, title, description, deadline, completed);
     system("cls||clear");
+    WELCOME
     if (todoPosted){
         printf(UYEL"Todo has been created successfully\n\n"reset);
     } else {
@@ -271,17 +272,17 @@ int main(){
         getPassword();
         int userExists = authenticate_user(username, password);
     if (userExists){
-        playSound("C:/C_prog/My_Projects/TODO-APP/audio/bonus.wav", "1.5");
+        playSound("../TODO-APP/audio/bonus.wav", "1.5");
         system("cls||clear");
         WELCOME
         printf(UGRN "Welcome back, %s" reset " " UYEL "{*u*}\n" reset, username);
     } else {
         if (search_user(username)){
-            playSound("C:/C_prog/My_Projects/TODO-APP/audio/jump_sound.wav", "1.5");
+            playSound("../TODO-APP/audio/jump_sound.wav", "1.5");
             printf(URED"\nUser already exits, the entered password is wrong.\n\n"reset);
             goto getUserData;   
         }
-        playSound("C:/C_prog/My_Projects/TODO-APP/audio/bonus.wav", "1.5");
+        playSound("../TODO-APP/audio/bonus.wav", "1.5");
         system("cls||clear");
         WELCOME
         printf(UGRN "Congratulations, your account is activated" reset " " YEL ":)\n" reset);
