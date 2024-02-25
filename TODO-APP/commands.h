@@ -328,7 +328,7 @@ int delete_items(char *db_loc, char *table_name, int query_size, char **columns,
     strcat(sql, table_name);
     
     if (query_size>0){
-        strcat(sql, " WHERE");
+        strcat(sql, " WHERE ");
         for (int i = 0; i < query_size; i++){
             strcat(sql, columns[i]);
             strcat(sql, " = ");
