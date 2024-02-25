@@ -225,8 +225,6 @@ void menu(char *username){
     printf("\nSelect " RED "actions" reset" And ENTER corresponding " RED "number " reset ":-\n");
     printf(BLU"1. Add a todo: \n"reset);
     printf(BLU"2. Delete a todo: \n"reset);
-    //delete_todo()
-    //delete_all()
     printf(BLU"3. Mark a todo as complete: \n"reset);
     printf(BLU"4. Show my todos: \n"reset);
     printf(BLU"[X] Exit \n"reset);
