@@ -4,9 +4,9 @@
 #include <stdlib.h>
 #include "commands.h"
 
-char *users_db_loc = "C:/C_prog/My_Projects/TODO-APP/database/user.db";
+char *users_db_loc = "../TODO-APP/database/user.db";
 char *users_table = "users";
-char *todos_db_loc = "C:/C_prog/My_Projects/TODO-APP/database/todos.db";
+char *todos_db_loc = "../TODO-APP/database/todos.db";
 
 //Two db's usersData, todosData
 int authenticate_user(char *username, char *password){
