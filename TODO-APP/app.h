@@ -87,12 +87,3 @@ void delete_todo_by_id(char *username, char *ID){
     char *values[] = {ID};
     delete_items(todos_db_loc, username, 1, columns, schema, values);
 }
-
-// void timer(){}
-// void my_clock(){}
-// void login_user(){}
-// void update_todo(){}
-// void delete_todo(){}
-// void display_todos(){}
-// void display_todo(){}
-// void mark_complete(){}
