@@ -270,9 +270,9 @@ int main(){
     system("cls||clear");
     WELCOME
     printf(BCYN "With this TODO App, you can create todos, set deadlines, check completion status and update them.\n\n" reset);
-    printf(MAG "If you are an existing user, Enter your original username and password, else just create a new one.\n" reset);
+    printf(MAG "If you are an existing user, Enter your original username and password, else just create a new one.\n\n" reset);
     getUserData: 
-        printf(BLKB "USERNAME:" reset " ");
+        printf(BLKB "USERNAME " REDB"(in lowercase)"reset BLKB":" reset " ");
         username = (char *)malloc((maxNameLen+1)  * sizeof(char));
         gets(username);
         printf(BLKB "PASSWORD:" reset " ");
@@ -289,12 +289,14 @@ int main(){
             playSound("../TODO-APP/audio/jump_sound.wav", "1.5");
             printf(URED"\nUser already exits, the entered password is wrong.\n\n"reset);
             goto getUserData;   
+        } else {
+            playSound("../TODO-APP/audio/bonus.wav", "1.5");
+            system("cls||clear");
+            WELCOME
+            printf(UGRN "Congratulations, your account is activated" reset " " YEL ":)\n" reset);
+            create_user(username, password);
+            create_todo_table(username);
         }
-        playSound("../TODO-APP/audio/bonus.wav", "1.5");
-        system("cls||clear");
-        WELCOME
-        printf(UGRN "Congratulations, your account is activated" reset " " YEL ":)\n" reset);
-        create_todo_table(username);
     }
     while (!EXIT){
         menu(username);
