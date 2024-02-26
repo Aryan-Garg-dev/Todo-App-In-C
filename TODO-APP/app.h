@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 #include <string.h>
 #include <stdlib.h>
 #include "commands.h"
@@ -9,6 +10,7 @@ char *todos_db_loc = "../TODO-APP/database/todos.db";
 
 //Two db's usersData, todosData
 int authenticate_user(char *username, char *password){
+    strlwr(username);
     char *req_data[] = {"*"};
     char *columns[] = {"username", "password"};
     char *schemas[] = {"text", "text"};
@@ -18,15 +20,21 @@ int authenticate_user(char *username, char *password){
 }
 
 int search_user(char *username){
+    strlwr(username);
     char *req_data[] = {"*"};
     char *columns[] = {"username"};
     char *schemas[] = {"text"};
     char *values[] = {username};
     int userExists = show_items(users_db_loc, users_table, 1, req_data, 1, columns, schemas, values, 0);
-    if (!userExists){
-        insert_values(users_db_loc, users_table, 2, columns, schemas, values);
-    }
     return userExists;
+}
+
+void create_user(char *username, char*password){
+    strlwr(username);
+    char *columns[] = {"username", "password"};
+    char *schemas[] = {"text", "text"};
+    char *values[] = {username, password};
+    insert_values(users_db_loc, users_table, 2, columns, schemas, values);
 }
 
 void create_todo_table(char *username){
