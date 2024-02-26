@@ -93,6 +93,7 @@ void showTodos(char *username){
         printf(BLU"[X] Exit.\n"reset);
     char option = getch();
     system("cls||clear");
+    WELCOME
     switch(option){
         case '1':
             printf(UCYN"ALL TODOS:\n\n"reset);
@@ -270,8 +271,8 @@ int main(){
         printf(BLKB "PASSWORD:" reset " ");
         password = (char *)malloc((maxPassLen+1) * sizeof(char));
         getPassword();
-        int userExists = authenticate_user(username, password);
-    if (userExists){
+        int userVerified = authenticate_user(username, password);
+    if (userVerified){
         playSound("../TODO-APP/audio/bonus.wav", "1.5");
         system("cls||clear");
         WELCOME
