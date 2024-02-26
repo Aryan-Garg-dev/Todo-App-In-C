@@ -14,11 +14,8 @@ int authenticate_user(char *username, char *password){
     char *columns[] = {"username", "password"};
     char *schemas[] = {"text", "text"};
     char *values[] = {username, password};
-    int userExists = show_items(users_db_loc, users_table, 1, req_data, 2, columns, schemas, values, 0);
-    if (!userExists){
-        insert_values(users_db_loc, users_table, 2, columns, schemas, values);
-    }
-    return userExists;
+    int userVerified = show_items(users_db_loc, users_table, 1, req_data, 2, columns, schemas, values, 0);
+    return userVerified;
 }
 
 int search_user(char *username){
@@ -26,7 +23,11 @@ int search_user(char *username){
     char *columns[] = {"username"};
     char *schemas[] = {"text"};
     char *values[] = {username};
-    return show_items(users_db_loc, users_table, 1, req_data, 1, columns, schemas, values, 0);
+    int userExists = show_items(users_db_loc, users_table, 1, req_data, 1, columns, schemas, values, 0);
+    if (!userExists){
+        insert_values(users_db_loc, users_table, 2, columns, schemas, values);
+    }
+    return userExists;
 }
 
 void create_todo_table(char *username){
