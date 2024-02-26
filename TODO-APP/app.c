@@ -24,6 +24,7 @@ char *username;
 char *password;
 char *displayName;
 
+//TO HIDE PASSWORD
 void getPassword(){
     char ch;
     int i = 0;
@@ -42,6 +43,7 @@ void getPassword(){
     printf("\n");
 }
 
+//TO PLAY SOUND IN TERMINAL
 void playSound(char *soundLoc, char *duration){
     //("powershell -c (New-Object Media.SoundPlayer '<example.wav>').Play(); Start-Sleep -s <duration>; Exit;")
     char *command = (char *)malloc(512*sizeof(char));
@@ -54,6 +56,7 @@ void playSound(char *soundLoc, char *duration){
     free(command);
 }
 
+//POST WINDOW
 void postTodo(char *username){
     WELCOME
     printf(BLU"Provide neccassary details to create a Todo\n"reset);
@@ -84,6 +87,7 @@ void postTodo(char *username){
     free(completed);
 }
 
+//SHOW WINDOW
 void showTodos(char *username){
     WELCOME
     SELECT:
@@ -115,6 +119,7 @@ void showTodos(char *username){
     }
 }
 
+//UPDATE WINDOW
 void markComplete(char *username){
     char *ID = (char *)malloc(5*sizeof(char));
     WELCOME
@@ -164,6 +169,7 @@ void markComplete(char *username){
     }
 }
 
+//DELETE WINDOW
 void deleteTodos(char *username){
     char *ID = (char *)malloc(5*sizeof(char));
     WELCOME
@@ -222,6 +228,7 @@ void deleteTodos(char *username){
     }
 }
 
+//MENU WINDOW
 void menu(char *username){
     char option;
     printf("\nSelect " RED "actions" reset" And ENTER corresponding " RED "number " reset ":-\n");
