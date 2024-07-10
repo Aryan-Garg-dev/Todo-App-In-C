@@ -23,3 +23,9 @@ Once the application is running, you can perform the following actions:
 ## Dependencies
 
 - **SQLite3**: This application relies on the SQLite database library for database operations.
+
+## How to run this file locally
+- Make sure you have sqlite3 and minGW downloaded locally.
+- Clone this repo.
+- Run ``` gcc app.c -o app -L./sqlite3 -lsqlite3 ```
+- Then ``` ./app.exe ```
